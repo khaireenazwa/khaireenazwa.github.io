@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/gold_prices_100_year_historical_chart.csv"
+  },
+  "title": {
+    "text": "Gold Historical Price Growth (1916-2024)",
+    "subtitle": ["CPI (%)", "Source: Macroeconomic LLC"],
+    "color": "#0558b0",
+    "subtitleColor": "#0558b0"
+  },
+  "mark": {
+    "type": "area",
+    "line": {"color": "darkgoldenrod"},
+    "color": {
+      "x1": 1,
+      "y1": 1,
+      "x2": 1,
+      "y2": 0,
+      "gradient": "linear",
+      "stops": [
+        {"offset": 0, "color": "white"},
+        {"offset": 1, "color": "darkgoldenrod"}
+      ]
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "axis": {"title": null, "grid": false},
+      "type": "temporal"
+    },
+    "y": {"field": " value", "axis": {"title": null}, "type": "quantitative"}
+  },
+  "config": {}
+}
