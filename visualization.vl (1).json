@@ -4,13 +4,13 @@
     "text": "Iran Petrochemical Industry Output (2006-2020)",
     "anchor": "start",
     "subtitle": "IRR (billions) | Source: SCI through ECO API",
-    "fontSize": "14",
-    "subtitleFontSize": "12",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
     "color": "#6e01a5",
     "subtitleColor": "#6e01a5"
   },
-  "height": "250",
-  "width": "container",
+  "height": 250,
+  "width": 600,
   "autosize": {"type": "fit", "contains": "padding"},
   "background": "#ffffff",
   "view": {"fill": "#ffafd8", "strokeOpacity": 0},
@@ -18,7 +18,7 @@
     "url": "https://api.economicsobservatory.com/irn/petro?vega",
     "format": {"type": "json"}
   },
-  "mark": {"type": "line", "color": "#6e01a5", "strokeWidth": "4"},
+  "mark": {"type": "line", "color": "#6e01a5", "strokeWidth": 4},
   "encoding": {
     "x": {
       "field": "date",
