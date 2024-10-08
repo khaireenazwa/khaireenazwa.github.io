@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Compensation for Slave Owners vs Slaves over Time",
+  "width": 600,
+  "data": {
+    "values": [
+      {
+        "Year": 1834,
+        "Compensation for Slave Owners (Millions £)": 20,
+        "Compensation for Slaves (Millions £)": 0
+      },
+      {
+        "Year": 1849,
+        "Compensation for Slave Owners (Millions £)": 18,
+        "Compensation for Slaves (Millions £)": 0
+      },
+      {
+        "Year": 1864,
+        "Compensation for Slave Owners (Millions £)": 15,
+        "Compensation for Slaves (Millions £)": 0
+      },
+      {
+        "Year": 1879,
+        "Compensation for Slave Owners (Millions £)": 12,
+        "Compensation for Slaves (Millions £)": 0
+      },
+      {
+        "Year": 1894,
+        "Compensation for Slave Owners (Millions £)": 10,
+        "Compensation for Slaves (Millions £)": 0
+      },
+      {
+        "Year": 1909,
+        "Compensation for Slave Owners (Millions £)": 7,
+        "Compensation for Slaves (Millions £)": 0
+      }
+    ]
+  },
+  "transform": [
+    {
+      "fold": [
+        "Compensation for Slave Owners (Millions £)",
+        "Compensation for Slaves (Millions £)"
+      ],
+      "as": ["Group", "Compensation"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "color": "#ffd6e8",
+        "line": {"color": "#ff6f91", "width": 3},
+        "point": {"filled": true, "fill": "#ff6f91", "size": 100}
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "labelFont": "Poppins",
+            "labelColor": "#fdf0d5",
+            "labelAngle": 0,
+            "tickCount": 7,
+            "title": null
+          }
+        },
+        "y": {
+          "field": "Compensation",
+          "type": "quantitative",
+          "axis": {
+            "labelFont": "Poppins",
+            "labelColor": "#fdf0d5",
+            "title": null
+          }
+        },
+        "color": {
+          "field": "Group",
+          "type": "nominal",
+          "scale": {"range": ["#ff6f91", "#6A0572"]},
+          "legend": {
+            "title": null,
+            "labelFont": "Poppins",
+            "labelColor": "#fdf0d5"
+          }
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Compensation for Slave Owners vs. Slaves (1834-1909)",
+    "subtitle": ["Millions (£)", "Source: The National Archives"],
+    "font": "Poppins",
+    "color": "#fdf0d5",
+    "subtitleColor": "#fdf0d5",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "background": "#650208",
+  "config": {}
+}
