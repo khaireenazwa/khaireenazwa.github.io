@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 10 Countries by Renewable Energy Consumption (2000-2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/renewable_energy_top10_tidy.csv",
+    "format": {"type": "csv"}
+  },
+  "background": "#a0d2eb",
+  "mark": {"type": "point", "filled": true, "size": 50},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "axis": {"title": "Year", "labelAngle": -45}
+    },
+    "y": {
+      "field": "Renewable_Energy_Percentage",
+      "type": "quantitative",
+      "axis": {
+        "title": "Renewable Energy (% of total energy)",
+        "grid": true,
+        "tickCount": 10
+      },
+      "scale": {"domain": [50, 100]}
+    },
+    "color": {
+      "field": "Country Name",
+      "type": "nominal",
+      "legend": {"title": "Country"}
+    },
+    "tooltip": [
+      {"field": "Country Name", "type": "nominal", "title": "Country"},
+      {"field": "Year", "type": "temporal", "title": "Year"},
+      {
+        "field": "Renewable_Energy_Percentage",
+        "type": "quantitative",
+        "title": "Renewable Energy (%)"
+      }
+    ]
+  },
+  "title": {
+    "text": "Top 10 Countries by Renewable Energy Consumption (2000-2020)",
+    "color": "#004d40",
+    "fontSize": 18
+  },
+  "config": {}
+}
