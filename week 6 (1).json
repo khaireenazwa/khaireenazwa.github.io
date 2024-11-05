@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "UK Population Mid-Year Estimate",
+  "data": {
+    "values": [
+      {"year": "1971", "value": 55928000},
+      {"year": "1972", "value": 56096700},
+      {"year": "1973", "value": 56222900},
+      {"year": "1974", "value": 56235600},
+      {"year": "1975", "value": 56225700},
+      {"year": "1976", "value": 56216100},
+      {"year": "1977", "value": 56189900},
+      {"year": "1978", "value": 56178000},
+      {"year": "1979", "value": 56240100},
+      {"year": "1980", "value": 56329700},
+      {"year": "1981", "value": 56357500},
+      {"year": "1982", "value": 56290700},
+      {"year": "1983", "value": 56315700},
+      {"year": "1984", "value": 56409300},
+      {"year": "1985", "value": 56554000},
+      {"year": "1986", "value": 56683800},
+      {"year": "1987", "value": 56804000},
+      {"year": "1988", "value": 56916400},
+      {"year": "1989", "value": 57076500},
+      {"year": "1990", "value": 57237500},
+      {"year": "1991", "value": 57438700},
+      {"year": "1992", "value": 57584500},
+      {"year": "1993", "value": 57713900},
+      {"year": "1994", "value": 57862100},
+      {"year": "1995", "value": 58024800},
+      {"year": "1996", "value": 58164400},
+      {"year": "1997", "value": 58314200},
+      {"year": "1998", "value": 58474900},
+      {"year": "1999", "value": 58684400},
+      {"year": "2000", "value": 58886100},
+      {"year": "2001", "value": 59113000},
+      {"year": "2002", "value": 59365700},
+      {"year": "2003", "value": 59636700},
+      {"year": "2004", "value": 59950400},
+      {"year": "2005", "value": 60413300},
+      {"year": "2006", "value": 60827100},
+      {"year": "2007", "value": 61319100},
+      {"year": "2008", "value": 61823800},
+      {"year": "2009", "value": 62260500},
+      {"year": "2010", "value": 62759500},
+      {"year": "2011", "value": 63285100},
+      {"year": "2012", "value": 63710800},
+      {"year": "2013", "value": 64138700},
+      {"year": "2014", "value": 64619500},
+      {"year": "2015", "value": 65088100},
+      {"year": "2016", "value": 65607100},
+      {"year": "2017", "value": 65966000},
+      {"year": "2018", "value": 66288900},
+      {"year": "2019", "value": 66630700},
+      {"year": "2020", "value": 66744100},
+      {"year": "2021", "value": 66983500},
+      {"year": "2022", "value": 67602800},
+      {"year": "2023", "value": 68265200}
+    ]
+  },
+  "mark": {"type": "line", "color": "#8fd1b5", "strokeWidth": 2},
+  "width": 400,
+  "height": 300,
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "labelAngle": -45,
+        "labelColor": "#4d4d4d",
+        "labelFontSize": 10,
+        "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Population",
+        "titleColor": "#4d4d4d",
+        "labelColor": "#4d4d4d"
+      },
+      "scale": {"domain": [55000000, 70000000]}
+    }
+  },
+  "title": {
+    "text": "UK Population (1971-2023)",
+    "fontSize": 16,
+    "color": "#2e5d47"
+  },
+  "background": "#e8f5e9",
+  "config": {}
+}

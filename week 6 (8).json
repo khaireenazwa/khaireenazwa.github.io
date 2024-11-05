@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "House Price Index Over Time (1971-2023)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/house_price_index.json",
+    "format": {"type": "json", "property": "years"}
+  },
+  "mark": {"type": "line", "color": "#a26769", "strokeWidth": 2},
+  "width": 400,
+  "height": 300,
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "Year",
+        "labelAngle": -45,
+        "labelColor": "#4d4d4d",
+        "labelFontSize": 10,
+        "format": "%Y",
+        "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "House Price Index",
+        "titleColor": "#4d4d4d",
+        "labelColor": "#4d4d4d"
+      }
+    }
+  },
+  "title": {
+    "text": "House Price Index Over Time (1971-2023)",
+    "fontSize": 16,
+    "color": "#6e3d4f"
+  },
+  "background": "#f3e1e1",
+  "config": {}
+}

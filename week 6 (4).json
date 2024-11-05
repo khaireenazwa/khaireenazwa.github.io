@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Consumer Price Index (CPI) (1971-2023)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/cpi_index.json",
+    "format": {"type": "json", "property": "years"}
+  },
+  "mark": {"type": "line", "color": "#84a59d", "strokeWidth": 2},
+  "width": 400,
+  "height": 300,
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "Year",
+        "labelAngle": -45,
+        "labelColor": "#4d4d4d",
+        "labelFontSize": 10,
+        "format": "%Y",
+        "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "CPI Index",
+        "titleColor": "#4d4d4d",
+        "labelColor": "#4d4d4d"
+      }
+    }
+  },
+  "title": {
+    "text": "Consumer Price Index (1971-2023)",
+    "fontSize": 16,
+    "color": "#5a8f7b"
+  },
+  "background": "#e7f0e4",
+  "config": {}
+}
