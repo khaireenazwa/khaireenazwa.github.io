@@ -1,0 +1,258 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Economic Dashboard of the United Kingdom",
+  "background": "#eaf4fc",
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "title": "UK Population",
+          "data": {
+            "values": [
+              {"year": "1971", "value": 55928000},
+              {"year": "1972", "value": 56096700},
+              {"year": "1973", "value": 56222900},
+              {"year": "2023", "value": 68265200}
+            ]
+          },
+          "mark": {"type": "line", "color": "#8fd1b5", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "year",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Population"}
+            }
+          }
+        },
+        {
+          "title": "Employment Rate",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/employment_rate.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#8cb3e1", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Employment Rate (%)"}
+            }
+          }
+        },
+        {
+          "title": "Unemployment Rate",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/unemployment_rate.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#f2a6b1", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Unemployment Rate (%)"}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "CPI Index",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/cpi_index.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#84a59d", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "CPI Index"}
+            }
+          }
+        },
+        {
+          "title": "GDP Growth Rate",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/gdp_growth.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#f4a261", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "GDP Growth Rate (%)"}
+            }
+          }
+        },
+        {
+          "title": "Exports Over Time",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/exports.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#2a9d8f", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Exports (Million GBP)"}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Imports Over Time",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/imports.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#457b9d", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Imports (Million GBP)"}
+            }
+          }
+        },
+        {
+          "title": "House Price Index",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/house_price_index.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#a26769", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "House Price Index"}
+            }
+          }
+        },
+        {
+          "title": "Weekly Earnings",
+          "data": {
+            "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/weekly_earnings.json",
+            "format": {"type": "json", "property": "years"}
+          },
+          "mark": {"type": "line", "color": "#8ab6d6", "strokeWidth": 2},
+          "width": 150,
+          "height": 100,
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Year",
+                "labelAngle": -45,
+                "values": ["1971", "1980", "1990", "2000", "2010", "2020"]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "axis": {"title": "Weekly Earnings (GBP)"}
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
