@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Map 1: Base Map of Indonesia",
+  "description": "Base map of Indonesia with province borders and tooltips displaying province names.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/all_maps_state_indo.geojson",
+    "format": {"type": "json", "property": "features"}
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#4a4a4a",
+    "strokeWidth": 0.7,
+    "fill": "#a2d5c6"
+  },
+  "encoding": {
+    "tooltip": {
+      "field": "properties.name",
+      "type": "nominal",
+      "title": "Province"
+    }
+  },
+  "projection": {"type": "mercator", "scale": 1700, "center": [120, -3]},
+  "width": 700,
+  "height": 500,
+  "config": {}
+}
