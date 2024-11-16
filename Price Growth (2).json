@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Price Growth Comparison: Hermès Birkin, S&P 500, and Gold (USD, $)",
+    "fontSize": 24,
+    "font": "Merriweather",
+    "color": "#5f5faf",
+    "anchor": "middle"
+  },
+  "width": 900,
+  "height": 500,
+  "data": {
+    "values": [
+      {"year": 2020, "category": "Birkin Bag", "price": 11000},
+      {"year": 2021, "category": "Birkin Bag", "price": 11000},
+      {"year": 2022, "category": "Birkin Bag", "price": 11300},
+      {"year": 2023, "category": "Birkin Bag", "price": 11600},
+      {"year": 2024, "category": "Birkin Bag", "price": 12500},
+      {"year": 2020, "category": "S&P 500", "price": 3700},
+      {"year": 2021, "category": "S&P 500", "price": 4700},
+      {"year": 2022, "category": "S&P 500", "price": 3800},
+      {"year": 2023, "category": "S&P 500", "price": 4000},
+      {"year": 2024, "category": "S&P 500", "price": 6000},
+      {"year": 2020, "category": "Gold", "price": 2400},
+      {"year": 2021, "category": "Gold", "price": 2200},
+      {"year": 2022, "category": "Gold", "price": 2100},
+      {"year": 2023, "category": "Gold", "price": 2100},
+      {"year": 2024, "category": "Gold", "price": 2500}
+    ]
+  },
+  "mark": {"type": "line", "point": true, "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#5f5faf",
+        "title": null
+      }
+    },
+    "y": {
+      "field": "price",
+      "type": "quantitative",
+      "axis": {
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#5f5faf",
+        "grid": true,
+        "tickCount": 5,
+        "title": null
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {"range": ["#f9a8c4", "#a9c8f9", "#fccca6"]},
+      "legend": {
+        "title": "Category",
+        "titleFont": "Merriweather",
+        "titleFontSize": 16,
+        "titleColor": "#5f5faf",
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#5f5faf"
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "category", "type": "nominal", "title": "Category"},
+      {"field": "price", "type": "quantitative", "title": "Price (USD)"}
+    ]
+  },
+  "config": {
+    "background": "#f7f9fc",
+    "font": "Merriweather",
+    "axis": {
+      "gridColor": "#e0e0e0",
+      "domainColor": "#5f5faf",
+      "tickColor": "#5f5faf"
+    },
+    "title": {"font": "Merriweather", "color": "#5f5faf"}
+  }
+}

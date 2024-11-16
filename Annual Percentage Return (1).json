@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap of Average, Highest, and Lowest Annual Returns for Birkin Bags, S&P 500, and Gold.",
+  "title": {
+    "text": "Annual Returns for S&P 500, Gold & Hermes Birkin (1980-2015)",
+    "fontSize": 26,
+    "font": "Merriweather",
+    "anchor": "start",
+    "color": "#1c3c80"
+  },
+  "width": 500,
+  "height": 350,
+  "data": {
+    "values": [
+      {"Investment": "S&P 500", "Metric": "Average Return", "Return": 11.66},
+      {"Investment": "S&P 500", "Metric": "Highest Return", "Return": 37.2},
+      {"Investment": "S&P 500", "Metric": "Lowest Return", "Return": -36.55},
+      {"Investment": "Gold", "Metric": "Average Return", "Return": 1.9},
+      {"Investment": "Gold", "Metric": "Highest Return", "Return": 14.3},
+      {"Investment": "Gold", "Metric": "Lowest Return", "Return": -7.9},
+      {
+        "Investment": "Hermes Birkin Bags",
+        "Metric": "Average Return",
+        "Return": 14.2
+      },
+      {
+        "Investment": "Hermes Birkin Bags",
+        "Metric": "Highest Return",
+        "Return": 25
+      },
+      {
+        "Investment": "Hermes Birkin Bags",
+        "Metric": "Lowest Return",
+        "Return": 2.1
+      }
+    ]
+  },
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 5,
+    "stroke": "#e0e0e0",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "y": {
+      "field": "Investment",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#1c3c80"
+      },
+      "sort": ["S&P 500", "Gold", "Hermes Birkin Bags"]
+    },
+    "x": {
+      "field": "Metric",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#1c3c80"
+      },
+      "sort": ["Average Return", "Highest Return", "Lowest Return"]
+    },
+    "color": {
+      "field": "Return",
+      "type": "quantitative",
+      "title": "Annual Return (%)",
+      "scale": {"scheme": "blues", "domain": [-40, 40]},
+      "legend": {
+        "labelFontSize": 14,
+        "titleFontSize": 16,
+        "titleFont": "Merriweather",
+        "labelFont": "Merriweather",
+        "labelColor": "#1c3c80",
+        "titleColor": "#1c3c80"
+      }
+    },
+    "tooltip": [
+      {"field": "Investment", "type": "nominal", "title": "Investment Type"},
+      {"field": "Metric", "type": "nominal", "title": "Metric"},
+      {"field": "Return", "type": "quantitative", "title": "Annual Return (%)"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent", "fill": "#d8e8fc"},
+    "title": {"anchor": "start", "color": "#1c3c80"},
+    "axis": {
+      "labelFontSize": 14,
+      "labelFont": "Merriweather",
+      "titleFont": "Merriweather"
+    }
+  }
+}
