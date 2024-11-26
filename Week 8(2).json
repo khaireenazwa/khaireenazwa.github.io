@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Distribution of COVID-19 Vaccinations per 100 People",
+    "fontSize": 20,
+    "font": "Arial",
+    "color": "#ffa726"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/vaccination-data.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [{"filter": "datum.TOTAL_VACCINATIONS_PER100 != null"}],
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true, "opacity": 0.8},
+      "encoding": {
+        "x": {
+          "field": "TOTAL_VACCINATIONS_PER100",
+          "bin": {"maxbins": 30},
+          "type": "quantitative",
+          "axis": {
+            "title": "Vaccinations Per 100 People",
+            "titleColor": "#ffa726",
+            "labelColor": "#ffa726"
+          }
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "axis": {
+            "title": "Count",
+            "titleColor": "#ffa726",
+            "labelColor": "#ffa726"
+          }
+        },
+        "color": {"value": "#7e57c2"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "#ff7043", "strokeWidth": 3},
+      "transform": [
+        {
+          "density": "TOTAL_VACCINATIONS_PER100",
+          "groupby": ["WHO_REGION"],
+          "extent": [0, 500],
+          "bandwidth": 15
+        }
+      ],
+      "encoding": {
+        "x": {"field": "value", "type": "quantitative", "axis": null},
+        "y": {"field": "density", "type": "quantitative"},
+        "detail": {"field": "WHO_REGION", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {"type": "rule", "color": "#29b6f6", "strokeDash": [5, 5]},
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "TOTAL_VACCINATIONS_PER100",
+          "type": "quantitative",
+          "axis": null
+        },
+        "tooltip": [
+          {
+            "aggregate": "mean",
+            "field": "TOTAL_VACCINATIONS_PER100",
+            "type": "quantitative",
+            "title": "Mean Vaccinations Per 100 People"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#263238",
+    "axis": {"gridColor": "#607d8b", "gridDash": [2, 2]}
+  },
+  "width": 800,
+  "height": 500
+}
