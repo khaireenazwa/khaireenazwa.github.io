@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Volatility vs. Stability: Comparing Birkin Bags, Gold, and S&P 500.",
+  "data": {
+    "values": [
+      {"Asset": "Birkin Bags", "Volatility": 0.02, "Stability": 100},
+      {"Asset": "Gold", "Volatility": 0.1, "Stability": 85},
+      {"Asset": "S&P 500", "Volatility": 0.25, "Stability": 60}
+    ]
+  },
+  "width": 700,
+  "height": 500,
+  "mark": {"type": "circle", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "Stability",
+      "type": "quantitative",
+      "title": "Stability (Inverse of Volatility)",
+      "axis": {
+        "grid": true,
+        "gridColor": "#CFE9F1",
+        "labelFontSize": 14,
+        "titleFontSize": 16,
+        "labelColor": "#333366",
+        "titleColor": "#333366"
+      }
+    },
+    "y": {
+      "field": "Volatility",
+      "type": "quantitative",
+      "title": "Volatility (Standard Deviation of Price Changes)",
+      "axis": {
+        "grid": true,
+        "gridColor": "#F6D6E6",
+        "labelFontSize": 14,
+        "titleFontSize": 16,
+        "labelColor": "#333366",
+        "titleColor": "#333366"
+      }
+    },
+    "color": {
+      "field": "Asset",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Birkin Bags", "Gold", "S&P 500"],
+        "range": ["#FF639E", "#FF9F45", "#4B91F2"]
+      },
+      "legend": {
+        "title": "Asset",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "titleColor": "#333366",
+        "labelColor": "#333366"
+      }
+    },
+    "size": {
+      "field": "Stability",
+      "type": "quantitative",
+      "scale": {"range": [500, 8000]},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "Asset", "type": "nominal", "title": "Asset"},
+      {
+        "field": "Volatility",
+        "type": "quantitative",
+        "title": "Volatility (%)"
+      },
+      {"field": "Stability", "type": "quantitative", "title": "Stability"}
+    ]
+  },
+  "title": {
+    "text": "Volatility vs. Stability: Birkin Bags, Gold, and S&P 500",
+    "fontSize": 22,
+    "font": "Arial",
+    "anchor": "middle",
+    "color": "#333366"
+  },
+  "config": {
+    "background": "#FFF8E8",
+    "axis": {"titleFontSize": 14, "labelFontSize": 12}
+  }
+}
