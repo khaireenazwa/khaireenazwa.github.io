@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "CO2 Emissions vs GDP Per Capita (2022)",
+    "fontSize": 18,
+    "font": "Arial",
+    "color": "#4caf50"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/co2-emissions-vs-gdp%20REAL.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [{"filter": "datum.Year == 2022"}],
+  "mark": {"type": "circle", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "GDP per capita",
+      "type": "quantitative",
+      "axis": {
+        "title": "GDP Per Capita (USD)",
+        "titleFont": "Arial",
+        "titleColor": "#4caf50",
+        "labelColor": "#4caf50"
+      },
+      "scale": {"type": "log", "domain": {"selection": "zoom_x"}}
+    },
+    "y": {
+      "field": "Annual CO₂ emissions (per capita)",
+      "type": "quantitative",
+      "axis": {
+        "title": "CO₂ Emissions Per Capita (tonnes)",
+        "titleFont": "Arial",
+        "titleColor": "#4caf50",
+        "labelColor": "#4caf50"
+      },
+      "scale": {"type": "log", "domain": {"selection": "zoom_y"}}
+    },
+    "size": {
+      "field": "Population (historical)",
+      "type": "quantitative",
+      "scale": {"range": [10, 200]},
+      "legend": {
+        "title": "Population",
+        "titleColor": "#4caf50",
+        "labelColor": "#4caf50"
+      }
+    },
+    "color": {
+      "field": "World regions according to OWID",
+      "type": "nominal",
+      "scale": {"scheme": "category20"},
+      "legend": {
+        "title": "World Regions",
+        "titleColor": "#4caf50",
+        "labelColor": "#4caf50"
+      }
+    },
+    "tooltip": [
+      {"field": "Entity", "type": "nominal", "title": "Country"},
+      {
+        "field": "GDP per capita",
+        "type": "quantitative",
+        "title": "GDP Per Capita (USD)"
+      },
+      {
+        "field": "Annual CO₂ emissions (per capita)",
+        "type": "quantitative",
+        "title": "CO₂ Emissions Per Capita (tonnes)"
+      },
+      {
+        "field": "Population (historical)",
+        "type": "quantitative",
+        "title": "Population"
+      }
+    ]
+  },
+  "selection": {
+    "brush": {"type": "interval", "encodings": ["x", "y"]},
+    "zoom_x": {"type": "interval", "encodings": ["x"], "bind": "scales"},
+    "zoom_y": {"type": "interval", "encodings": ["y"], "bind": "scales"}
+  },
+  "config": {
+    "background": "#f5f5f5",
+    "axis": {"gridColor": "#bdbdbd", "gridDash": [3, 3]}
+  },
+  "width": 800,
+  "height": 500
+}
