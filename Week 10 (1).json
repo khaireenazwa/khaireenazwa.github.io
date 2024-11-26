@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "COVID-19 Vaccination Heat Map",
+    "fontSize": 20,
+    "font": "Arial",
+    "color": "#1e88e5"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/vaccination-data.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "continent_filter",
+      "bind": {
+        "input": "select",
+        "options": [null, "AFRO", "AMRO", "EURO", "SEARO", "WPRO", "EMRO"],
+        "labels": [
+          "All Continents",
+          "AFRO",
+          "AMRO",
+          "EURO",
+          "SEARO",
+          "WPRO",
+          "EMRO"
+        ],
+        "name": "Select a Continent: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "continent_filter == null || datum.WHO_REGION == continent_filter"
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "COUNTRY",
+      "type": "nominal",
+      "axis": {
+        "title": "Country",
+        "labels": false,
+        "ticks": false,
+        "titleColor": "#1e88e5"
+      },
+      "sort": "alphabetic"
+    },
+    "y": {
+      "field": "WHO_REGION",
+      "type": "nominal",
+      "axis": {
+        "title": "WHO Region",
+        "labelColor": "#1e88e5",
+        "titleColor": "#1e88e5"
+      }
+    },
+    "color": {
+      "field": "TOTAL_VACCINATIONS_PER100",
+      "type": "quantitative",
+      "scale": {"scheme": "viridis"},
+      "legend": {
+        "title": "Vaccinations Per 100 People",
+        "titleColor": "#1e88e5",
+        "labelColor": "#1e88e5"
+      }
+    },
+    "tooltip": [
+      {"field": "COUNTRY", "type": "nominal", "title": "Country"},
+      {"field": "WHO_REGION", "type": "nominal", "title": "WHO Region"},
+      {
+        "field": "TOTAL_VACCINATIONS",
+        "type": "quantitative",
+        "title": "Total Vaccinations"
+      },
+      {
+        "field": "PERSONS_VACCINATED_1PLUS_DOSE",
+        "type": "quantitative",
+        "title": "Persons Vaccinated (1+ Dose)"
+      },
+      {
+        "field": "TOTAL_VACCINATIONS_PER100",
+        "type": "quantitative",
+        "title": "Vaccinations Per 100"
+      }
+    ]
+  },
+  "config": {
+    "background": "#ffffff",
+    "axis": {"gridColor": "#e0e0e0", "gridDash": [2, 2]}
+  },
+  "width": 800,
+  "height": 500
+}
