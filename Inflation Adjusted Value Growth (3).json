@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Inflation-Adjusted Value Growth: Hermès Birkin, S&P 500, and Gold (USD, $)",
+    "fontSize": 22,
+    "font": "Merriweather",
+    "color": "#004d00",
+    "anchor": "middle"
+  },
+  "width": 900,
+  "height": 500,
+  "data": {
+    "values": [
+      {
+        "year": 2020,
+        "category": "Birkin Bag",
+        "price": 11000,
+        "inflation_adjusted": 10600
+      },
+      {
+        "year": 2021,
+        "category": "Birkin Bag",
+        "price": 11000,
+        "inflation_adjusted": 10800
+      },
+      {
+        "year": 2022,
+        "category": "Birkin Bag",
+        "price": 11300,
+        "inflation_adjusted": 11100
+      },
+      {
+        "year": 2023,
+        "category": "Birkin Bag",
+        "price": 11600,
+        "inflation_adjusted": 11450
+      },
+      {
+        "year": 2024,
+        "category": "Birkin Bag",
+        "price": 12500,
+        "inflation_adjusted": 12300
+      },
+      {
+        "year": 2020,
+        "category": "S&P 500",
+        "price": 3700,
+        "inflation_adjusted": 3500
+      },
+      {
+        "year": 2021,
+        "category": "S&P 500",
+        "price": 4700,
+        "inflation_adjusted": 4400
+      },
+      {
+        "year": 2022,
+        "category": "S&P 500",
+        "price": 3800,
+        "inflation_adjusted": 3600
+      },
+      {
+        "year": 2023,
+        "category": "S&P 500",
+        "price": 4000,
+        "inflation_adjusted": 3900
+      },
+      {
+        "year": 2024,
+        "category": "S&P 500",
+        "price": 6000,
+        "inflation_adjusted": 5800
+      },
+      {
+        "year": 2020,
+        "category": "Gold",
+        "price": 2400,
+        "inflation_adjusted": 2300
+      },
+      {
+        "year": 2021,
+        "category": "Gold",
+        "price": 2200,
+        "inflation_adjusted": 2100
+      },
+      {
+        "year": 2022,
+        "category": "Gold",
+        "price": 2100,
+        "inflation_adjusted": 2000
+      },
+      {
+        "year": 2023,
+        "category": "Gold",
+        "price": 2100,
+        "inflation_adjusted": 2050
+      },
+      {
+        "year": 2024,
+        "category": "Gold",
+        "price": 2500,
+        "inflation_adjusted": 2400
+      }
+    ]
+  },
+  "mark": {"type": "circle", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#ff8c1a",
+        "title": null
+      }
+    },
+    "y": {
+      "field": "inflation_adjusted",
+      "type": "quantitative",
+      "axis": {
+        "labelFont": "Merriweather",
+        "labelFontSize": 14,
+        "labelColor": "#ff8c1a",
+        "grid": true,
+        "tickCount": 5,
+        "title": null
+      }
+    },
+    "size": {
+      "field": "price",
+      "type": "quantitative",
+      "legend": {
+        "title": "Original Value",
+        "titleFont": "Merriweather",
+        "titleFontSize": 14,
+        "titleColor": "#336600",
+        "labelFont": "Merriweather",
+        "labelFontSize": 12,
+        "labelColor": "#336600"
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {"range": ["#ff5722", "#ffa000", "#8bc34a"]},
+      "legend": {
+        "title": "Category",
+        "titleFont": "Merriweather",
+        "titleFontSize": 14,
+        "titleColor": "#336600",
+        "labelFont": "Merriweather",
+        "labelFontSize": 12,
+        "labelColor": "#336600"
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "category", "type": "nominal", "title": "Category"},
+      {
+        "field": "price",
+        "type": "quantitative",
+        "title": "Original Value (USD)"
+      },
+      {
+        "field": "inflation_adjusted",
+        "type": "quantitative",
+        "title": "Inflation-Adjusted Value (USD)"
+      }
+    ]
+  },
+  "config": {
+    "background": "#ffebcc",
+    "font": "Merriweather",
+    "axis": {
+      "gridColor": "#ffffe0",
+      "domainColor": "#004d00",
+      "tickColor": "#004d00"
+    },
+    "title": {"font": "Merriweather", "color": "#004d00"}
+  }
+}
