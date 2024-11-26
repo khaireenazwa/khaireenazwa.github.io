@@ -1,0 +1,73 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Supply VS Demand of Birkin Bags",
+    "fontSize": 24,
+    "font": "Impact",
+    "color": "#1c72be"
+  },
+  "data": {
+    "values": [
+      {"Year": 2010, "Price": 7000, "Type": "Supply"},
+      {"Year": 2015, "Price": 7500, "Type": "Supply"},
+      {"Year": 2020, "Price": 8000, "Type": "Supply"},
+      {"Year": 2025, "Price": 8500, "Type": "Supply"},
+      {"Year": 2010, "Price": 10000, "Type": "Demand"},
+      {"Year": 2015, "Price": 15000, "Type": "Demand"},
+      {"Year": 2020, "Price": 25000, "Type": "Demand"},
+      {"Year": 2025, "Price": 40000, "Type": "Demand"}
+    ]
+  },
+  "width": 800,
+  "height": 500,
+  "layer": [
+    {
+      "mark": {"type": "image", "width": 80, "height": 80},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year",
+            "labelFontSize": 14,
+            "titleFontSize": 16,
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "Price",
+          "type": "quantitative",
+          "axis": {
+            "title": "Price (in USD)",
+            "labelFontSize": 14,
+            "titleFontSize": 16,
+            "grid": false,
+            "tickCount": 5,
+            "values": [0, 10000, 20000, 30000, 40000]
+          }
+        },
+        "url": {
+          "condition": [
+            {
+              "test": "datum.Type === 'Demand'",
+              "value": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/birkin%20image%20(2).png"
+            },
+            {
+              "test": "datum.Type === 'Supply'",
+              "value": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/birkin%20image.png"
+            }
+          ]
+        },
+        "tooltip": [
+          {"field": "Type", "type": "nominal", "title": "Bag Type"},
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Price", "type": "quantitative", "title": "Price (USD)"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#ffb7d5",
+    "legend": {"titleFontSize": 16, "labelFontSize": 14}
+  }
+}
