@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth map of Indonesia showing population density by province.",
+  "title": "Map 2: Population Density by Province in Indonesia (2021)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/all_maps_state_indo.geojson",
+    "format": {"type": "json", "property": "features"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/processed_population_density.csv",
+          "format": {"type": "csv"}
+        },
+        "key": "province_name",
+        "fields": ["population_density"]
+      }
+    }
+  ],
+  "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.5},
+  "encoding": {
+    "color": {
+      "field": "population_density",
+      "type": "quantitative",
+      "title": "Population Density",
+      "scale": {"scheme": "blues", "domain": [1, 500]}
+    },
+    "tooltip": [
+      {
+        "field": "properties.name",
+        "type": "nominal",
+        "title": "Province in GeoJSON"
+      },
+      {
+        "field": "population_density",
+        "type": "quantitative",
+        "title": "Population Density"
+      }
+    ]
+  },
+  "projection": {"type": "mercator", "scale": 1000, "center": [120, -3]},
+  "width": 800,
+  "height": 600,
+  "config": {"background": "#f0f8ff"}
+}
