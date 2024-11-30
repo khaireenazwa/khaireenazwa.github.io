@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Inflation-Adjusted Value Growth: Hermès Birkin, S&P 500, and Gold (USD, $)",
+    "fontSize": 24,
+    "font": "Playfair Display",
+    "color": "#15041B",
+    "anchor": "middle"
+  },
+  "width": 800,
+  "height": 500,
+  "data": {
+    "values": [
+      {
+        "year": 2020,
+        "category": "Birkin Bag",
+        "price": 11000,
+        "inflation_adjusted": 11000
+      },
+      {
+        "year": 2021,
+        "category": "Birkin Bag",
+        "price": 11000,
+        "inflation_adjusted": 10624
+      },
+      {
+        "year": 2022,
+        "category": "Birkin Bag",
+        "price": 11300,
+        "inflation_adjusted": 10094
+      },
+      {
+        "year": 2023,
+        "category": "Birkin Bag",
+        "price": 11600,
+        "inflation_adjusted": 9795
+      },
+      {
+        "year": 2024,
+        "category": "Birkin Bag",
+        "price": 12500,
+        "inflation_adjusted": 9958
+      },
+      {
+        "year": 2020,
+        "category": "S&P 500",
+        "price": 3218,
+        "inflation_adjusted": 4006
+      },
+      {
+        "year": 2021,
+        "category": "S&P 500",
+        "price": 4273,
+        "inflation_adjusted": 4572
+      },
+      {
+        "year": 2022,
+        "category": "S&P 500",
+        "price": 4098,
+        "inflation_adjusted": 5129
+      },
+      {
+        "year": 2023,
+        "category": "S&P 500",
+        "price": 4283,
+        "inflation_adjusted": 4174
+      },
+      {
+        "year": 2024,
+        "category": "S&P 500",
+        "price": 5349,
+        "inflation_adjusted": 4911
+      },
+      {
+        "year": 2020,
+        "category": "Gold",
+        "price": 1784,
+        "inflation_adjusted": 2175
+      },
+      {
+        "year": 2021,
+        "category": "Gold",
+        "price": 1792,
+        "inflation_adjusted": 2088
+      },
+      {
+        "year": 2022,
+        "category": "Gold",
+        "price": 1799,
+        "inflation_adjusted": 1943
+      },
+      {
+        "year": 2023,
+        "category": "Gold",
+        "price": 1949,
+        "inflation_adjusted": 2020
+      },
+      {
+        "year": 2024,
+        "category": "Gold",
+        "price": 2185,
+        "inflation_adjusted": 2198
+      }
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "tooltip": true,
+    "cornerRadiusTopLeft": 5,
+    "cornerRadiusTopRight": 5
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "labelFont": "Playfair Display",
+        "labelFontSize": 14,
+        "labelColor": "#333587",
+        "title": "Year",
+        "titleFontSize": 16,
+        "titleFont": "Playfair Display",
+        "titleColor": "#333587"
+      }
+    },
+    "y": {
+      "field": "inflation_adjusted",
+      "type": "quantitative",
+      "axis": {
+        "labelFont": "Playfair Display",
+        "labelFontSize": 14,
+        "labelColor": "#333587",
+        "grid": true,
+        "gridColor": "#E3E3E3",
+        "tickCount": 5,
+        "title": "Inflation-Adjusted Value (USD)",
+        "titleFontSize": 16,
+        "titleFont": "Playfair Display",
+        "titleColor": "#333587"
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {"range": ["#8D3CA3", "#ED9161", "#FCC868"]},
+      "legend": {
+        "title": "Category",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 16,
+        "titleColor": "#15041B",
+        "labelFont": "Playfair Display",
+        "labelFontSize": 14,
+        "labelColor": "#15041B",
+        "orient": "right"
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "category", "type": "nominal", "title": "Category"},
+      {
+        "field": "price",
+        "type": "quantitative",
+        "title": "Original Value (USD)"
+      },
+      {
+        "field": "inflation_adjusted",
+        "type": "quantitative",
+        "title": "Inflation-Adjusted Value (USD)"
+      }
+    ]
+  },
+  "config": {
+    "background": "#F7F5F2",
+    "font": "Playfair Display",
+    "axis": {
+      "gridColor": "#E5E5E5",
+      "domainColor": "#15041B",
+      "tickColor": "#333587"
+    },
+    "title": {"font": "Playfair Display", "color": "#15041B"}
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Supply vs. Demand of Birkin Bags",
+    "fontSize": 24,
+    "font": "Playfair Display",
+    "color": "#ffffff"
+  },
+  "data": {
+    "values": [
+      {
+        "Model": "Regular leather in a classic colour",
+        "Price": 8800,
+        "Type": "Supply"
+      },
+      {
+        "Model": "Epsom Sellier in Vert Criquet",
+        "Price": 8800,
+        "Type": "Supply"
+      },
+      {
+        "Model": "Special Order HSS, popular colour combo",
+        "Price": 8800,
+        "Type": "Supply"
+      },
+      {"Model": "Ostrich", "Price": 17600, "Type": "Supply"},
+      {"Model": "Matte Alligator", "Price": 38500, "Type": "Supply"},
+      {"Model": "Matte Alligator in Mimosa", "Price": 38500, "Type": "Supply"},
+      {
+        "Model": "Niloticus Himalaya ('Z' stamp)",
+        "Price": 50600,
+        "Type": "Supply"
+      },
+      {
+        "Model": "Regular leather in a classic colour",
+        "Price": 14300,
+        "Type": "Demand"
+      },
+      {
+        "Model": "Epsom Sellier in Vert Criquet",
+        "Price": 18700,
+        "Type": "Demand"
+      },
+      {
+        "Model": "Special Order HSS, popular colour combo",
+        "Price": 19800,
+        "Type": "Demand"
+      },
+      {"Model": "Ostrich", "Price": 27500, "Type": "Demand"},
+      {"Model": "Matte Alligator", "Price": 55000, "Type": "Demand"},
+      {"Model": "Matte Alligator in Mimosa", "Price": 88000, "Type": "Demand"},
+      {
+        "Model": "Niloticus Himalaya ('Z' stamp)",
+        "Price": 154000,
+        "Type": "Demand"
+      }
+    ]
+  },
+  "width": 900,
+  "height": 500,
+  "mark": {"type": "image", "tooltip": true, "width": 50, "height": 50},
+  "encoding": {
+    "x": {
+      "field": "Model",
+      "type": "ordinal",
+      "axis": {
+        "title": "Birkin Model",
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "labelAngle": -45,
+        "grid": false,
+        "titleColor": "#ffffff",
+        "labelColor": "#ffffff"
+      }
+    },
+    "y": {
+      "field": "Price",
+      "type": "quantitative",
+      "axis": {
+        "title": "Price (in USD)",
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "grid": true,
+        "gridColor": "#4c4c4c",
+        "titleColor": "#ffffff",
+        "labelColor": "#ffffff"
+      }
+    },
+    "url": {
+      "condition": [
+        {
+          "test": "datum.Type === 'Demand'",
+          "value": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/birkin%20image%20(2).png"
+        },
+        {
+          "test": "datum.Type === 'Supply'",
+          "value": "https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/birkin%20image.png"
+        }
+      ]
+    },
+    "tooltip": [
+      {"field": "Type", "type": "nominal", "title": "Bag Type"},
+      {"field": "Model", "type": "ordinal", "title": "Birkin Model"},
+      {"field": "Price", "type": "quantitative", "title": "Price (USD)"}
+    ],
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {"range": ["#1E90FF", "#98FB98"]},
+      "legend": {
+        "title": "",
+        "titleFontSize": 16,
+        "labelFontSize": 12,
+        "labelColor": "#ffffff",
+        "titleColor": "#ffffff"
+      }
+    },
+    "opacity": {
+      "condition": {"param": "legendSelect", "value": 1},
+      "value": 0.2
+    }
+  },
+  "params": [
+    {
+      "name": "legendSelect",
+      "select": {"type": "point", "fields": ["Type"]},
+      "bind": "legend"
+    },
+    {
+      "name": "highlight",
+      "select": {"type": "point", "on": "mouseover"},
+      "bind": null
+    },
+    {"name": "zoom", "select": {"type": "interval", "bind": "scales"}}
+  ],
+  "config": {
+    "background": "#1c1c1c",
+    "axis": {
+      "gridColor": "#4c4c4c",
+      "domainColor": "#ffffff",
+      "tickColor": "#ffffff"
+    },
+    "legend": {
+      "titleFontSize": 16,
+      "labelFontSize": 12,
+      "labelColor": "#ffffff",
+      "titleColor": "#ffffff"
+    }
+  }
+}
