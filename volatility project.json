@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Volatility of Investment Assets: Gold, S&P 500, and Hermès Birkin",
+    "fontSize": 24,
+    "font": "Playfair Display",
+    "color": "#000000",
+    "anchor": "start"
+  },
+  "width": 700,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Asset": "Gold", "Volatility": 7.23},
+      {"Asset": "S&P 500", "Volatility": 16.79},
+      {"Asset": "Birkin", "Volatility": 2.86}
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "tooltip": true,
+    "cornerRadiusTopLeft": 10,
+    "cornerRadiusTopRight": 10,
+    "stroke": "black",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "x": {
+      "field": "Asset",
+      "type": "nominal",
+      "axis": {
+        "title": "Investment Asset",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 16,
+        "titleColor": "#333333",
+        "labelFontSize": 14,
+        "labelColor": "#333333"
+      }
+    },
+    "y": {
+      "field": "Volatility",
+      "type": "quantitative",
+      "axis": {
+        "title": "Volatility (%)",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 16,
+        "titleColor": "#333333",
+        "labelFontSize": 14,
+        "labelColor": "#333333",
+        "gridColor": "#e3e3e3"
+      }
+    },
+    "color": {
+      "field": "Asset",
+      "type": "nominal",
+      "scale": {"range": ["#005f73", "#94d2bd", "#ee9b00"]},
+      "legend": {
+        "title": "Asset Type",
+        "titleFontSize": 16,
+        "titleFont": "Playfair Display",
+        "titleColor": "#333333",
+        "labelFontSize": 14,
+        "labelColor": "#333333"
+      }
+    },
+    "opacity": {
+      "condition": {"param": "legendSelect", "value": 1},
+      "value": 0.3
+    },
+    "tooltip": [
+      {"field": "Asset", "type": "nominal", "title": "Asset Type"},
+      {"field": "Volatility", "type": "quantitative", "title": "Volatility (%)"}
+    ]
+  },
+  "params": [
+    {
+      "name": "legendSelect",
+      "select": {"type": "point", "fields": ["Asset"]},
+      "bind": "legend"
+    },
+    {
+      "name": "hover",
+      "select": {"type": "point", "on": "mouseover", "clear": "mouseout"},
+      "bind": null
+    }
+  ],
+  "transform": [{"filter": {"param": "legendSelect"}}],
+  "config": {
+    "background": "#f6f7f9",
+    "axis": {
+      "gridColor": "#e3e3e3",
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    },
+    "legend": {
+      "titleFontSize": 16,
+      "labelFontSize": 14,
+      "labelColor": "#333333",
+      "titleColor": "#333333"
+    }
+  }
+}
