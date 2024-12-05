@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Correlation Matrix: Birkin, S&P 500, and Gold",
+    "fontSize": 24,
+    "font": "Playfair Display",
+    "color": "#0d3e79"
+  },
+  "data": {
+    "values": [
+      {"AssetX": "Birkin Bag", "AssetY": "Birkin Bag", "Correlation": 1},
+      {"AssetX": "Birkin Bag", "AssetY": "S&P 500", "Correlation": 0.02},
+      {"AssetX": "Birkin Bag", "AssetY": "Gold", "Correlation": 0.83},
+      {"AssetX": "S&P 500", "AssetY": "Birkin Bag", "Correlation": 0.02},
+      {"AssetX": "S&P 500", "AssetY": "S&P 500", "Correlation": 1},
+      {"AssetX": "S&P 500", "AssetY": "Gold", "Correlation": 0.14},
+      {"AssetX": "Gold", "AssetY": "Birkin Bag", "Correlation": 0.83},
+      {"AssetX": "Gold", "AssetY": "S&P 500", "Correlation": 0.14},
+      {"AssetX": "Gold", "AssetY": "Gold", "Correlation": 1}
+    ]
+  },
+  "width": 400,
+  "height": 400,
+  "mark": {
+    "type": "rect",
+    "tooltip": true,
+    "stroke": "black",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "AssetX",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFont": "Playfair Display",
+        "labelFontSize": 14,
+        "labelAngle": 0,
+        "labelColor": "#000000"
+      }
+    },
+    "y": {
+      "field": "AssetY",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFont": "Playfair Display",
+        "labelFontSize": 14,
+        "labelColor": "#000000"
+      }
+    },
+    "color": {
+      "field": "Correlation",
+      "type": "quantitative",
+      "scale": {
+        "domain": [-1, 0, 1],
+        "range": ["#4575b4", "#ffffff", "#d73027"]
+      },
+      "legend": {
+        "title": "Correlation",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 14,
+        "labelFontSize": 12,
+        "labelFont": "Playfair Display",
+        "labelColor": "#000000",
+        "titleColor": "#000000"
+      }
+    },
+    "tooltip": [
+      {"field": "AssetX", "type": "nominal", "title": "Asset 1"},
+      {"field": "AssetY", "type": "nominal", "title": "Asset 2"},
+      {"field": "Correlation", "type": "quantitative", "title": "Correlation"}
+    ]
+  },
+  "config": {
+    "background": "#f9f9f9",
+    "axis": {
+      "gridColor": "#e0e0e0",
+      "domainColor": "#c0c0c0",
+      "tickColor": "#c0c0c0"
+    },
+    "legend": {
+      "titleFontSize": 16,
+      "labelFontSize": 12,
+      "labelColor": "#000000",
+      "titleColor": "#000000"
+    }
+  }
+}

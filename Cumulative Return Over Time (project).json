@@ -1,0 +1,106 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Cumulative Return Over Time: Birkin, S&P 500, and Gold",
+    "fontSize": 24,
+    "font": "Playfair Display",
+    "color": "#ffffff",
+    "anchor": "start"
+  },
+  "width": 800,
+  "height": 500,
+  "data": {
+    "values": [
+      {"Year": 2020, "Asset": "Birkin", "CumulativeReturn": 1000},
+      {"Year": 2021, "Asset": "Birkin", "CumulativeReturn": 1000},
+      {"Year": 2022, "Asset": "Birkin", "CumulativeReturn": 1027.27},
+      {"Year": 2023, "Asset": "Birkin", "CumulativeReturn": 1054.55},
+      {"Year": 2024, "Asset": "Birkin", "CumulativeReturn": 1136.36},
+      {"Year": 2020, "Asset": "S&P 500", "CumulativeReturn": 1000},
+      {"Year": 2021, "Asset": "S&P 500", "CumulativeReturn": 1327},
+      {"Year": 2022, "Asset": "S&P 500", "CumulativeReturn": 1270.94},
+      {"Year": 2023, "Asset": "S&P 500", "CumulativeReturn": 1329.24},
+      {"Year": 2024, "Asset": "S&P 500", "CumulativeReturn": 1658.82},
+      {"Year": 2020, "Asset": "Gold", "CumulativeReturn": 1000},
+      {"Year": 2021, "Asset": "Gold", "CumulativeReturn": 1004.49},
+      {"Year": 2022, "Asset": "Gold", "CumulativeReturn": 1008.42},
+      {"Year": 2023, "Asset": "Gold", "CumulativeReturn": 1090.66},
+      {"Year": 2024, "Asset": "Gold", "CumulativeReturn": 1211.04}
+    ]
+  },
+  "mark": {
+    "type": "line",
+    "point": {"filled": true, "size": 60},
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "labelColor": "#ffffff"
+      },
+      "scale": {"domain": {"selection": "zoom"}}
+    },
+    "y": {
+      "field": "CumulativeReturn",
+      "type": "quantitative",
+      "axis": {
+        "title": "Cumulative Return ($)",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "labelColor": "#ffffff",
+        "gridColor": "#666666"
+      }
+    },
+    "color": {
+      "field": "Asset",
+      "type": "nominal",
+      "scale": {"range": ["#e63946", "#457b9d", "#2a9d8f"]},
+      "legend": {
+        "title": "Asset Type",
+        "titleFont": "Playfair Display",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "labelColor": "#ffffff",
+        "titleColor": "#ffffff"
+      }
+    },
+    "opacity": {
+      "condition": {"param": "legendSelect", "value": 1},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Asset", "type": "nominal", "title": "Asset Type"},
+      {
+        "field": "CumulativeReturn",
+        "type": "quantitative",
+        "title": "Cumulative Return ($)"
+      }
+    ]
+  },
+  "selection": {
+    "legendSelect": {"type": "point", "fields": ["Asset"], "bind": "legend"},
+    "zoom": {"type": "interval", "encodings": ["x"]}
+  },
+  "config": {
+    "background": "#1b263b",
+    "axis": {
+      "gridColor": "#666666",
+      "domainColor": "#ffffff",
+      "tickColor": "#ffffff"
+    },
+    "legend": {
+      "titleFontSize": 16,
+      "labelFontSize": 14,
+      "labelColor": "#ffffff",
+      "titleColor": "#ffffff"
+    }
+  }
+}
