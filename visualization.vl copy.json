@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Rate Of Unemployment In Japan (1990-2022)",
+    "anchor": "start",
+    "subtitle": "Rate, % | Source: JSB (WB) through ECO API",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#ffffff",
+    "subtitleColor": "#ffffff"
+  },
+  "height": 250,
+  "width": 600,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "background": "#79b5ff",
+  "view": {"fill": "#e6effe", "strokeOpacity": 0},
+  "data": {
+    "url": "https://api.economicsobservatory.com/jpn/unem?vega",
+    "format": {"type": "json"}
+  },
+  "mark": {"type": "area", "color": "#ffcc00", "strokeWidth": 5},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {"title": "", "titleColor": "#000000", "grid": false}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {"title": "", "titleColor": "#000000", "grid": false}
+    }
+  },
+  "config": {}
+}

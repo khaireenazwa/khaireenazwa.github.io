@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaireen</title>
+    <link rel="stylesheet" href="index copy.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Khaireen Azwa</h1>
+            <p>Practical Data Science</p>
+            <a href="https://www.linkedin.com/in/khaireen-azwa-26b40b263/">LinkedIn</a> | <a href="https://www.github.com/khaireenazwa">GitHub</a>
+        </header>
+
+        <main id="mainContent">
+            <div class="button-section">
+                <button class="cozy-btn" onclick="loadCharts(1)">Week 1 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(3)">Week 2 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(5)">Week 3 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(7)">Week 4 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(9)">Week 5 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(11)">Week 6 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(13)">Week 7 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(15)">Week 8 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(17)">Week 9 Coding Challenge</button>
+                <button class="cozy-btn" onclick="loadCharts(19)">Week 10 Coding Challenge</button>
+            </div>
+
+            <!-- Containers for Charts -->
+            <div id="chartContainer1" class="chart-container" style="display: none;"></div>
+            <div id="chartContainer2" class="chart-container" style="display: none;"></div>
+
+            <!-- Week 3 Argument Section -->
+            <div id="argumentSection" style="display: none;">
+                <p><strong>Argument:</strong> The long-term economic and educational inequalities created by colonialism have left a persistent legacy, evident in both financial compensation and access to education.</p>
+            </div>
+
+            <!-- Chart 1 with Comment Above -->
+            <p id="commentChart1" class="comment" style="display: none;">Chart 1 shows that while slave owners were compensated after abolition, slaves received nothing, reinforcing inequality.</p>
+
+            <!-- Chart 2 with Comment Above -->
+            <p id="commentChart2" class="comment" style="display: none;">Chart 2 highlights educational inequalities in India post-colonialism, where the upper class had far better literacy rates than the lower class.</p>
+
+            <!-- Final Comment Section -->
+            <p id="finalCommentSection" class="comment" style="display: none;">
+                <strong>Comment:</strong> Both charts support the argument that colonialism reinforced long-term inequalities, with economic benefits for elites and educational barriers for lower classes.
+            </p>
+
+            <!-- Week 4 Section -->
+            <div id="week4Section" style="display: none;">
+                <h4>Replication</h4>
+                <div class="chart-section">
+                    <h2>Original Chart</h2>
+                    <img src="https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/original_chart.png" alt="Original Chart">
+                    <p class="comment">This is the original chart from The Economist showing contributions to world GDP growth by country.</p>
+                </div>
+                <div class="chart-section">
+                    <h2>Replicated Chart</h2>
+                    <div id="replicatedChart"></div>
+                    <p class="comment">This chart replicates the original, focusing on structure and color matching.</p>
+                </div>
+                <div class="chart-section">
+                    <h2>Improved Chart</h2>
+                    <div id="improvedChart"></div>
+                    <p class="comment">The stacked bar chart offers clear yearly comparisons, high-contrast colors for accessibility, a red trend line for total GDP, and tooltips for detailed insights.</p>
+                </div>
+            </div>
+
+            <!-- Week 5 Section -->
+            <div id="week5Section" style="display: none;">
+                <h5>Scraper</h5>
+                <div class="link-section">
+                    <p><strong>Google Colab Notebook:</strong></p>
+                    <a href="https://colab.research.google.com/drive/1W3GWGFLsWm1Y_LqgVGujzIbF5HAbxe3j?usp=sharing" target="_blank">
+                        Renewable Energy Data Analysis on Google Colab
+                    </a>
+                </div>
+                <div id="week5Chart" class="chart-container"></div>
+                <p class="comment"><strong>Comment:</strong> The World Bank site offers comprehensive, up-to-date global data on renewable energy, essential for studying environmental and economic trends.</p>
+            </div>
+
+            <!-- Week 6 Section -->
+            <div id="week6Section" style="display: none;">
+                <h2>Economic Dashboard of the United Kingdom</h2>
+                <p><strong>Google Colab Notebook:</strong></p>
+                <a href="https://colab.research.google.com/drive/1xfF3FYTuGjWfNNm39l-4LKzVOLTuFFai?usp=sharing" target="_blank">
+                    Loops on Google Colab
+                </a>
+                <div id="week6Chart" class="chart-container"></div>
+            </div>
+
+            <!-- Week 7 Section -->
+            <div id="week7Section" style="display: none;">
+                <h7>Base Maps and Choropleths</h7>
+                <div id="week7Chart" class="chart-container"></div>
+                <p class="comment"><strong>Comment:</strong> Map 1 illustrates Indonesia's provinces with clear boundaries, while Map 2 visualizes population density by province in 2021, highlighting demographic distribution patterns.</p>
+            </div>
+
+            <!-- Week 8 Section -->
+            <div id="week8Section" style="display: none;">
+                <h8>Advanced Analytics</h8>
+                <div id="week8Chart" class="chart-container"></div>
+                <p class="comment"><strong>Comment:</strong> Advanced analytics exploring univariate regression and correlation trends in the dataset.</p>
+            </div>
+
+            <!-- Week 9 Section -->
+            <div id="week9Section" style="display: none;">
+                <h9>Big Data</h9>
+                <img src="https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/Week%2010(2).png" 
+                alt="Price of Avocado Pear in the UK" class="chart-image">
+                <img src="https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/Week%2010(1).png" 
+                alt="Price of Cheddar-Home Per KG in the UK" class="chart-image">
+                <p class="comment"><strong>Comment:</strong> I visualized UK price trends for cheddar-home produced, avocado, and pear using scatter plots. Proper date formatting and adjusted x-axis scales enhanced temporal representation. Transparent markers highlighted price density over time, and custom titles/subtitles clarified insights. These charts reveal long-term price stability and fluctuations in essential goods.</p>
+            </div>
+
+            <!-- Week 10 Section -->
+            <div id="week10Section" style="display: none;">
+                <h10>Interactive Visualisations</h10>
+                <div id="week10Chart" class="chart-container"></div>
+                <p class="comment"><strong>Comment:</strong> Interactive visualizations with bubble and heatmap analyses provide deeper insights into trends and distributions.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>© Khaireen 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
