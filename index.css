@@ -1,67 +1,193 @@
-/* This is an example CSS file. If you include it in your portfolio, it'll provide some clean and basic styling */
-/* for your page. Feel free to experiment with the values, or copy them into a new file and use that instead. */
 
-/* These are comments in CSS. Comments don't do anything except explain your working to make code easier to understand. */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #2e0347; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-y: auto; 
 
 
-body { /* We can style any HTML element by using its name - here we're styling the body */
-  /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-  /* we want a white page, that's centered and not too wide */
-  background-color: #fff;
-  margin:0 auto;
-  max-width: 800px;
-  padding-top: 60px;
+.container {
+  width: 90%;
+  max-width: 1000px; 
+  padding: 20px;
 }
 
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: #333;
-  margin-top: 24px;
-  margin-bottom: 16px;
-  font-weight: 600;
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: #ffe159;
 }
 
-/* We want the headings to be a little bigger than the paragraph text */
-.big { /* This is the class we created in the HTML file, you can use it to style any element */
-  font-size: 2.5em;
-}
-
-h2 {
-  font-size: 1.75em;
-}
-
-.small {
-  font-size: 1.25em;
-}
-
-/* Paragraph */
-p {
-  margin-bottom: 1em;
-  font-weight: 300;
-}
-
-section {
-  margin-bottom: 2.5em;  /* We want a little more space between sections */
+header p {
+  font-size: 1.2rem;
+  color: #ffe159;
+  margin-bottom: 10px;
 }
 
 /* Links */
-/* We want the links to be a little more visible  and a different color */
 a {
-  color: #065f46;
+  color: #b9ff66;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
   text-decoration: underline;
 }
-  
-/* Images */
-img {
-  max-width: 100%;
+
+/* Button Section */
+.button-section {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+}
+
+.cozy-btn, .back-btn {
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cozy-btn {
+  background-color: #ff6f91;
+}
+
+.cozy-btn:hover {
+  background-color: #feb47b;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn {
+  background-color: #feb47b;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-left: 20px;
+}
+
+.back-btn:hover {
+  background-color: #ff6f91;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Chart Container */
+.chart-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* For responsive layout */
+  gap: 15px;
+}
+
+canvas {
+  width: 100% !important;
+  max-width: 700px;
   height: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.chart-section {
+  margin-bottom: 40px;
+}
+
+.chart-section img {
+  width: 100%; 
+  max-width: 700px; 
+  height: auto; 
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific styles for Week 9 images */
+#week9Section img {
+  width: 100%; 
+  max-width: 600px; 
+  height: auto;
+  border-radius: 10px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  margin: 10px auto; /* Center-align with spacing */
+  display: block; 
+}
+
+/* Chart Images */
+.chart img {
+  width: 100%;
+  max-width: 700px; 
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 10px auto; /* Center align with margin */
+}
+
+/* Comments */
+.comment {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-top: 10px;
+  max-width: 800px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding: 10px 0;
+  background-color: #200030; 
+}
+
+footer p {
+  font-size: 1rem;
+  color: #fdf0d5;
+  margin: 0;
+}
+
+/* Adjustments for Mobile Screens */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .cozy-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+
+  .chart-section img, .chart img {
+    max-width: 100%;
+  }
+
+  .comment {
+    font-size: 0.9rem;
+  }
+}
 }
