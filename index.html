@@ -1,96 +1,346 @@
-<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
-<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
-<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
-<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
-
-<!-- Take a look around and make your own copy to adapt for your own use. -->
-
-<!-- This is a comment -->
-<!-- Comments are not displayed in the browser -->
-<!-- They can be used to leave notes in the code -->
-
 <!DOCTYPE html>
-<html> 
-    <!-- HTML is heirarchial: tags like this define elements on the page. 
-    Each tag does something different. For example:
-        - The <html> tag defines the whole document.
-        - The <h1> tag defines a large heading
-        - The <p> tag defines a paragraph
-        - Tags appear as an opening <div> and closing </div> pair
-    -->
-
-<head>    
-    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
-
-    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
-    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <title>My Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
-
-    <!-- This is a link to the vega-lite which we're using to make graphs -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermès Birkin Investment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script defer src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <style>
-        #chartGrid {
-            display: flex;
-        }
-        
-    </style>
 </head>
-
-<body> 
-<!-- The body tag contains the elements that visitors to our page will see. -->
-    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
-        <!-- This is a header, it is the largest text on the page -->
-        Your name
-    </h1>
-    <p style="margin-top: 0px; color: darkblue">
-        <!-- we're setting the margin to 0px so the header and authour name are close together -->
-        Your Name | <a href="https://www.linkedin.com/in/YOUR_LINKEDIN/">LinkedIn</a> | <a
-            href="https://www.github.com/YOUR_GITHUB">GitHub</a>
-    </p>
-    <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
-        This page acts as your portfolio of charts. You can use it as a good starting point to display your work but make sure to customise it to make it your own, or even start from scratch.  
-    </h3>
-
-    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
-    <section>
-        <div class="chart-description">
-            <h2>Section 1: A basic chart</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-
-    <!-- Do you want to add more sections? -->
-        <!-- Try copying pasting the section above -->
-        <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
-        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
-
-
-    <!-- This is a script, it's a way to run JavaScript code on the page -->
-    <script>
-        // This is a comment in JavaScript - it's a different language to HTML and CSS
-
-        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"; // We're storing the URL of the graph we want to display in a variable
-                                                                                                                    // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
-
-        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
-
-        // Do you want to add more graphs?
-        // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
-        // e.g. 
-        // let figure_3_spec = ...
-        // vegaEmbed('#Location3', figure_3_spec)
-
-
-    </script>
-
-</body>
+<body>
     
+    <div id="introScreen" class="intro-screen">
+        <img id="birkinImage" src="https://raw.githubusercontent.com/khaireenazwa/khaireenazwa.github.io/refs/heads/main/birkin%20image%20(2).png" alt="Hermès Birkin Bag">
+    </div>
+
+    
+    <div id="mainContent" class="hidden content">
+        
+        <nav class="menu-bar">
+            <button data-section="home">Home</button>
+            <button data-section="chart1">Chart 1</button>
+            <button data-section="chart2">Chart 2</button>
+            <button data-section="chart3">Chart 3</button>
+            <button data-section="chart4">Chart 4</button>
+            <button data-section="chart5">Chart 5</button>
+            <button data-section="chart6">Chart 6</button>
+            <button data-section="chart7">Chart 7</button>
+            <button data-section="conclusion">Conclusion</button>
+        </nav>
+
+        <div id="home" class="content-section active">
+            <div id="homeTitle">
+                <h1>Is the Hermès Birkin Bag a Better Investment than Stocks or Gold?</h1>
+                <p>A Practical Data Science for Economists Project</p>
+            </div>
+            <div id="slides">
+                <div class="slide active">
+                    <h2>Aim of the Project</h2>
+                    <p>In contrast to more conventional assets like gold and the S&P 500, the project seeks to evaluate the Hermès Birkin bag's potential as a financial investment. In order to determine if luxury handbags can be reliable, profitable investments, this study examines price growth, inflation-adjusted values, volatility, and cumulative returns. The study also looks into how market demand, exclusivity, and scarcity affect Birkin bags' worth over time, providing information on their place in diverse portfolios.</p>
+                </div>
+                <div class="slide hidden">
+                    <h2>Data Used</h2>
+                    <p>PurseBop, Baghunter, and other premium resale websites provided the data on Birkin bags. Nasdaq and MacroTrends were used to retrieve historical S&P 500 and gold values. MacroTrends and IMF projections were used to determine inflation rates. Python's pandas module was used at Google Colab to handle the data for cleaning, adjusting for inflation, and computing cumulative returns. All datasets were transformed into standardized formats for analysis, and automated scripts guaranteed replicability.</p>
+                </div>
+                <div class="slide hidden">
+                    <h2>Challenges in Data Cleaning and Analysis</h2>
+                    <p>The inconsistent Birkin bag pricing data, which resulted from model-specific variances and a lack of public records, was a major obstacle. Average prices for similar models were determined in order to resolve this. Accurate historical rates had to be sourced for inflation adjustments, and currency disputes were settled by converting to USD. Using Python packages, Google Colab offered a productive environment for data cleansing and standardization.</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <button id="prevSlide" class="nav-button">←</button>
+                <button id="nextSlide" class="nav-button">→</button>
+            </div>
+        </div>
+
+        <div id="chart1" class="content-section hidden">
+            <h2>Chart 1: Price Growth Comparison</h2>
+            <div class="chart-placeholder">
+                <div id="chart1-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>This chart visualizes the price growth trends of Hermès Birkin bags, stocks (S&P 500), and gold, providing insights into their investment potential and historical performance.</p>
+        <h4>Data Sources:</h4>
+            <ul>
+            <li>
+                <strong>Birkin Bag Prices:</strong> Derived from 
+                <a href="https://www.pursebop.com/the-birkin-surge-tracking-five-years-of-price-increases-in-the-us-and-eu/" target="_blank">PurseBop</a>, showcasing consistent price increases driven by luxury status and scarcity.
+            </li>
+            <li>
+                <strong>S&P 500 Prices:</strong> Sourced from the 
+                <a href="https://www.nasdaq.com/market-activity/index/spx/historical?page=98&rows_per_page=10&timeline=y5" target="_blank">Nasdaq</a>, processed using Google Colab and pandas for accurate yearly averages.
+            </li>
+            <li>
+                <strong>Gold Prices:</strong> Retrieved from 
+                <a href="https://www.macrotrends.net/1333/historical-gold-prices-100-year-chart" target="_blank">MacroTrends</a>, averaged similarly using Google Colab.
+            </li>
+          </ul>
+        <h4>Insights:</h4>
+        <ul>
+            <li><strong>Birkin Bags:</strong> Exhibit steady growth, low volatility, and strong demand, positioning them as a stable long-term investment.</li>
+            <li><strong>S&P 500:</strong> Shows higher growth potential but with notable volatility influenced by market cycles.</li>
+            <li><strong>Gold:</strong> Stable but with slower growth, maintaining value during economic uncertainty.</li>
+          </ul>
+        <p>This analysis highlights Birkin bags as a unique, high-performing investment. Explore the <a href="https://colab.research.google.com/drive/1ZgL5OGp4WId8FKQe90gQn6BGJm2oNG5U?usp=sharing" target="_blank">Google Colab Notebook</a> for replicable data processing.</p>
+    </div>
+</div>
+        <div id="chart2" class="content-section hidden">
+            <h2>Chart 2:  Inflation Adjusted Price</h2>
+            <div class="chart-placeholder">
+                <div id="chart2-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>
+                    This chart examines the inflation-adjusted values of Hermès Birkin bags, the S&P 500, and gold (2020–2024), offering a realistic view of asset growth after accounting for inflation.
+                </p>
+                <h4>Data Sources:</h4>
+                <ul>
+                    <li>
+                        <strong>Birkin Bags:</strong> Based on luxury resale trends and Hermès value predictions.
+                    </li>
+                    <li>
+                        <strong>S&P 500:</strong> Historical prices from <a href="https://www.multpl.com/inflation-adjusted-s-p-500/table/by-year" target="_blank">Multpl.com</a>, processed in Google Colab with pandas.
+                    </li>
+                    <li>
+                        <strong>Gold:</strong> Inflation-adjusted data from <a href="https://www.macrotrends.net/1333/historical-gold-prices-100-year-chart" target="_blank">MacroTrends</a>.
+                    </li>
+                    <li>
+                        <strong>Inflation Rates:</strong> Sourced from <a href="https://www.macrotrends.net/global-metrics/countries/WLD/world/inflation-rate-cpi#:~:text=World%20inflation%20rate%20for%202022,a%200.29%25%20decline%20from%202019" target="_blank">MacroTrends</a> and <a href="https://www.imf.org/en/Publications/WEO#:~:text=Global%20inflation%20is%20forecast%20to,emerging%20market%20and%20developing%20economies" target="_blank">IMF forecasts</a>.
+                    </li>
+                </ul>
+                <h4>Insights:</h4>
+                <ul>
+                    <li>
+                        <strong>Birkin Bags:</strong> Nominal growth is steady, but real returns decline after 2021 due to inflation. A slight recovery is seen in 2024.
+                    </li>
+                    <li>
+                        <strong>S&P 500:</strong> Significant nominal growth but declining real value, reflecting market volatility and inflationary impact.
+                    </li>
+                    <li>
+                        <strong>Gold:</strong> Stable in real terms, reinforcing its role as a hedge during inflationary periods.
+                    </li>
+                </ul>
+                <p>
+                    This analysis underscores the importance of inflation adjustments for understanding true asset performance. While Birkin bags offer steady growth, inflation dampens real gains. Gold remains stable, and the S&P 500 shows potential but suffers from volatility.
+                </p>
+                <p>
+                    Explore the <a href="https://colab.research.google.com/drive/1-5oMHIoTKkC23scGwwhwdTjSC7NRogei?usp=sharing" target="_blank">Google Colab Notebook</a> for full data processing details.
+                </p>
+            </div>
+        </div>
+        <div id="chart3" class="content-section hidden">
+            <h2>Chart 3: Annual Returns HeatMap</h2>
+            <div class="chart-placeholder">
+                <div id="chart3-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>
+                    This heatmap compares annual returns for Hermès Birkin bags, the S&P 500, and gold from 1980 to 2015, highlighting their growth, stability, and volatility.
+                </p>
+                <h4>Data Sources:</h4>
+                <ul>
+                    <li>
+                        <strong>Birkin Bags:</strong> Insights from <a href="https://baghunter.com/pages/hermes-birkin-values-research-study" target="_blank">Baghunter's Hermès Birkin Values Research Study</a>.
+                    </li>
+                    <li>
+                        <strong>S&P 500:</strong> Historical stock market data sourced from <a href="https://www.nasdaq.com" target="_blank">Nasdaq</a>.
+                    </li>
+                    <li>
+                        <strong>Gold:</strong> Historical price data sourced from <a href="https://www.macrotrends.net/1333/historical-gold-prices-100-year-chart" target="_blank">MacroTrends</a>.
+                    </li>
+                </ul>
+                <h4>Insights:</h4>
+                <ul>
+                    <li>
+                        <strong>Birkin Bags:</strong> Average return of 14.2%, outperforming both the S&P 500 and gold. Their lowest return (2.1%) underscores exceptional stability, driven by scarcity and demand.
+                    </li>
+                    <li>
+                        <strong>S&P 500:</strong> Average return of 11.66% highlights strong growth potential but comes with high volatility, as seen in sharp declines during market downturns.
+                    </li>
+                    <li>
+                        <strong>Gold:</strong> Average return of 1.9%, with moderate growth and stability during crises, reinforcing its role as a safe-haven asset.
+                    </li>
+                </ul>
+                <p>
+                    This chart demonstrates that Birkin bags combine steady growth and low risk, making them a unique and reliable investment. Meanwhile, gold offers stability, and the S&P 500 provides high returns with significant risk. Explore the <a href="https://baghunter.com/pages/hermes-birkin-values-research-study" target="_blank">full research study</a> for more insights into luxury investments.
+                </p>
+            </div>
+        </div>
+        <div id="chart4" class="content-section hidden">
+            <h2>Chart 4: Supply vs. Demand of Birkin Bags</h2>
+            <div class="chart-placeholder">
+                <div id="chart4-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>
+                    This chart highlights the supply and demand disparity for Hermès Birkin bags, emphasizing how exclusivity and scarcity drive resale values.
+                </p>
+                <h4>Data Sources:</h4>
+                <ul>
+                    <li>
+                        <strong>Supply Estimates:</strong> Annual Birkin production is estimated at 12,000–70,000 bags globally. Read more on 
+                        <a href="https://madisonavenuecouture.com/blogs/news/how-hermes-birkin-bags-are-made#:~:text=There%20are%20over%20eighty%20models,from%2012%2C000%20to%2070%2C000%20bags." target="_blank">
+                            Madison Avenue Couture
+                        </a>.
+                    </li>
+                    <li>
+                        <strong>Price Data:</strong> Retail and resale prices are sourced from 
+                        <a href="https://saclab.com/why-is-the-hermes-birkin-so-expensive/" target="_blank">
+                            Saclab
+                        </a>. Rare models, like the Niloticus Himalaya, resell for $154,000—triple their store price.
+                    </li>
+                    <li>
+                        <strong>Data Processing:</strong> Prices in Euros were converted to USD using a 1.1 exchange rate in 
+                        <a href="https://colab.research.google.com/drive/1VWzBQs-j7mpOwvWoAZFzCVPoJz3XxxmT?usp=sharing" target="_blank">
+                            Google Colab
+                        </a>.
+                    </li>
+                </ul>
+                <h4>Insights:</h4>
+                <ul>
+                    <li>
+                        <strong>Supply vs. Demand Pricing:</strong> Retail prices are consistently lower than resale values. For instance, the "Regular Leather in a Classic Colour" retails at $8,800 but resells for $14,300.
+                    </li>
+                    <li>
+                        <strong>Rarity Drives Demand:</strong> Rare models, such as the Niloticus Himalaya, see disproportionately higher resale prices, underscoring the value of exotic materials and scarcity.
+                    </li>
+                    <li>
+                        <strong>Exclusivity Strategy:</strong> Hermès limits supply to maintain demand and resale value, making Birkins a desirable and appreciating asset.
+                    </li>
+                </ul>
+                <p>
+                    This chart illustrates how scarcity and desirability elevate the Birkin's status as a luxury investment, with resale values far exceeding retail prices.
+                </p>
+            </div>
+        </div>
+        <div id="chart5" class="content-section hidden">
+            <h2>Chart 5: Volatility of Gold, S&P 500, and Hermès Birkin</h2>
+            <div class="chart-placeholder">
+                <div id="chart5-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>
+                    This chart compares the volatility of Gold, the S&P 500, and Hermès Birkin bags, offering insights into the risk and stability of these assets.
+                </p>
+                <h4>Data Sources:</h4>
+                <ul>
+                    <li>
+                        <strong>Gold:</strong> Historical price data from 
+                        <a href="https://www.macrotrends.net/1333/historical-gold-prices-100-year-chart" target="_blank">MacroTrends</a>.
+                    </li>
+                    <li>
+                        <strong>S&P 500:</strong> Retrieved from 
+                        <a href="https://www.nasdaq.com/market-activity/index/spx/historical?page=98&rows_per_page=10&timeline=y5" target="_blank">Nasdaq</a>, processed via Google Colab for volatility analysis.
+                    </li>
+                    <li>
+                        <strong>Birkin Bags:</strong> Luxury resale price trends compiled from auction platforms and 
+                        <a href="https://saclab.com/" target="_blank">Saclab</a>.
+                    </li>
+                </ul>
+                <h4>Insights:</h4>
+                <ul>
+                    <li><strong>Gold (7.23%):</strong> Moderate volatility, reflecting its role as a safe-haven asset.</li>
+                    <li><strong>S&P 500 (16.79%):</strong> Highest volatility, representing the stock market's susceptibility to economic cycles.</li>
+                    <li><strong>Birkin Bags (2.86%):</strong> Lowest volatility, underscoring their stability and growing appeal as an alternative investment.</li>
+                </ul>
+                <p>
+                    This chart highlights Birkin bags as a low-risk investment option compared to gold and stocks. Their limited supply and cultural status make them an attractive addition to a diversified portfolio. 
+                    For full volatility calculations, refer to the 
+                    <a href="https://colab.research.google.com/drive/1FvE6AQ3e4qEY88qxKqVwI5B476_4bM3H?usp=sharing" target="_blank">Google Colab Notebook</a>.
+                </p>
+            </div>
+        </div>
+        <div id="chart6" class="content-section hidden">
+            <h2>Chart 6: Correlation Matrix</h2>
+            <div class="chart-placeholder">
+                <div id="chart6-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>
+                    This chart visualizes the correlation matrix comparing the historical price movements of Hermès Birkin bags, the S&P 500, and gold. The goal is to analyze the relationships between these assets and understand how their prices are associated over time.
+                </p>
+                <h4>Data Sources:</h4>
+                <ul>
+                    <li><strong>Birkin Bags:</strong> Resale and retail price data sourced from luxury platforms and market reports.</li>
+                    <li><strong>S&P 500:</strong> Historical price data retrieved from stock indices.</li>
+                    <li><strong>Gold:</strong> Data sourced from financial databases.</li>
+                </ul>
+                <h4>Key Insights:</h4>
+                <ul>
+                    <li><strong>Birkin Bags and Gold:</strong> A strong positive correlation of 0.83 indicates that Birkin bags and gold prices tend to move in the same direction, reflecting their appeal as stable, safe-haven assets.</li>
+                    <li><strong>Birkin Bags and Stocks:</strong> A near-zero correlation (0.02) shows that the Birkin market operates independently of stock market volatility, making it a potential hedge against economic instability.</li>
+                    <li><strong>Gold and Stocks:</strong> A weak positive correlation (0.14) demonstrates minimal price synchronization, consistent with gold’s role as a portfolio diversifier.</li>
+                </ul>
+                <h4>Significance:</h4>
+                <p>
+                    This matrix highlights the Birkin bag's unique investment potential:
+                </p>
+                <ul>
+                    <li><strong>Strong correlation with gold:</strong> Reinforces its value as a "store of value."</li>
+                    <li><strong>Independence from the stock market:</strong> Supports its use in diversifying investment portfolios.</li>
+                </ul>
+                <p>
+                    Explore the full analysis in the accompanying 
+                    <a href="https://colab.research.google.com/drive/1iQSUdTXELVrLXYQC8g2T8SM-POQt-yUM?usp=sharing" target="_blank">Google Colab notebook</a> for replicable insights.
+                </p>
+            </div>
+        </div>
+        <div id="chart7" class="content-section hidden">
+            <h2>Chart 7: Cumulative Return Over Time</h2>
+            <div class="chart-placeholder">
+                <div id="chart7-container"></div>
+            </div>
+            <div class="comments-placeholder">
+                <p>
+                    This chart visualizes the growth of a $1,000 investment in Hermès Birkin bags, the S&P 500, and gold from 2020 to 2024, providing insights into the long-term compounding returns of each asset.
+                </p>
+                <h4>Data Sources:</h4>
+                <ul>
+                    <li><strong>Birkin Bags:</strong> Historical price data sourced from luxury resale trends.</li>
+                    <li><strong>S&P 500:</strong> Stock index data retrieved and processed using Google Colab.</li>
+                    <li><strong>Gold:</strong> Historical price data derived from MacroTrends.</li>
+                </ul>
+                <h4>Insights:</h4>
+                <ul>
+                    <li><strong>Birkin Bags:</strong> Exhibit consistent cumulative growth, reflecting rarity, exclusivity, and brand prestige. Their steady appreciation highlights their potential as a stable investment.</li>
+                    <li><strong>S&P 500:</strong> Offers the highest cumulative return but with substantial variability, typical of the stock market’s higher volatility.</li>
+                    <li><strong>Gold:</strong> Provides minimal growth, emphasizing its role as a low-volatility store of value.</li>
+                </ul>
+                <h4>Chart Features:</h4>
+                <ul>
+                    <li><strong>Multi-line Comparison:</strong> Clearly shows the distinct growth trajectories of the three assets.</li>
+                    <li><strong>Interactive Legend:</strong> Enables users to filter and focus on specific assets.</li>
+                    <li><strong>Zoom Functionality:</strong> Allows detailed exploration of specific time periods.</li>
+                    <li><strong>Tooltips:</strong> Display year, asset, and cumulative return for in-depth insights.</li>
+                </ul>
+                <h4>Key Takeaways:</h4>
+                <ul>
+                    <li><strong>Birkin Bags:</strong> Combine steady growth with low volatility, making them a unique investment option.</li>
+                    <li><strong>S&P 500:</strong> Demonstrates high growth potential but comes with higher risk.</li>
+                    <li><strong>Gold:</strong> Serves as a hedge against inflation but lacks significant returns compared to other assets.</li>
+                </ul>
+                <h4>Conclusion:</h4>
+                <p>
+                    This analysis highlights how Birkin bags can act as a low-risk, high-demand investment alternative, complementing traditional assets like stocks and gold. 
+                    For replicable analysis, access the full calculations in this 
+                    <a href="https://colab.research.google.com/drive/11abeUAOOxbl0F1ERG5u0JpMjG04ddZ8c?usp=sharing" target="_blank">Google Colab Notebook</a>.
+                </p>
+            </div>
+        </div>
+        <div id="conclusion" class="content-section hidden">
+            <div id="conclusion-container"></div>
+            <h2>Conclusion</h2>
+            <p>In terms of stability and returns, Birkin bags do better than gold and the S&P 500. Due to their great demand and exclusivity, they expand steadily, have little volatility, and are resistant to market swings. Stocks are more volatile even though they have more room for growth. Although it offers stability, gold yields little profit. According to the research, Birkin bags are a good substitute investment for diversification and wealth accumulation.</p>
+        </div>
+    </div>
+    </div>
+</body>
+<footer>
+    Copyright &copy; Khaireen Azwa, 2024. Visit my <a href="https://github.com/khaireenazwa/khaireenazwa.github.io" target="_blank">GitHub</a>.
+  </footer>
+
 </html>
